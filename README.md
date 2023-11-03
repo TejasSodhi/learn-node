@@ -45,6 +45,8 @@ The NodeJS standard library has several operations that are called blocking oper
 
 1. Explore the code in "operations/blocking.js" and "operations/nonblocking.js". For which code will the function moreWork() get executed. Why?
 
+--Answer:- non blocking would execute since in blocking the application would wait for readFileSync to complete and it wouldnt find the file therefore moreWork wouldnt run.
+
 One must be careful when writing concurrent scripts in Node.js. If actions performed in later stages are related to actions related in previous stages or vice-versa then the program will be in an error state. 
 For example, consider the code in "operations/syncdelete.js".
 
@@ -59,6 +61,8 @@ When *setTimeout(callback, ms)* invoked, Node puts a *callback* in the timer pha
 **For you to do**:
 
 1. In "eventloop/timer.js", what will be the order of execution?
+
+Asnswer - here setTimer code will put the function inside a queue and therefore would wait for the script to finish execution therefore would execute at the end.
 
 2. How many callbacks will the timers phase queue have after the script is run? 
 
